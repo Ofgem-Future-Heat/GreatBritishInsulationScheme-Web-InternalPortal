@@ -1,0 +1,48 @@
+﻿@using Ofgem.Web.GBI.InternalPortal.Infrastructure.Services;
+@using Ofgem.Web.GBI.InternalPortal.Domain.Enums;
+@using Ofgem.Web.GBI.InternalPortal.Domain.Models;
+@using Ofgem.Web.GBI.InternalPortal.UI.Extensions;
+@using Ofgem.Web.GBI.InternalPortal.UI.Models;
+@model UserViewModel;
+
+<style>
+    td {
+        word-break: break-all;
+    }
+</style>
+
+<h1 class="govuk-heading-xl">@Model.Header</h1>
+<table class="govuk-table">
+    <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" width="30%">Supplier name</th>
+            <td class="govuk-table__cell" data-test-id="supplier-name-table-cell" width="70%">
+                @Model.UserDetail!.Supplier.SupplierName
+            </td>
+        </tr>
+        <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" width="30%">Name</th>
+            <td class="govuk-table__cell" data-test-id="user-name-table-cell" width="70%">
+                @Model.UserDetail.FirstName @Model.UserDetail.LastName
+            </td>
+        </tr>
+        <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Email address</th>
+            <td class="govuk-table__cell" data-test-id="email-address-table-cell">
+                @Model.UserDetail.EmailAddress
+            </td>
+        </tr>
+        <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">User type</th>
+            <td class="govuk-table__cell" data-test-id="user-type-table-cell">
+                @EnumsExtensions.GetEnumDescription((ExternalUserType)Model.UserDetail.UserType)
+            </td>
+        </tr>
+        <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">User status</th>
+            <td class="govuk-table__cell" data-test-id="user-status-table-cell">
+                @Model.UserDetail.Status
+            </td>
+        </tr>
+    </tbody>
+</table>

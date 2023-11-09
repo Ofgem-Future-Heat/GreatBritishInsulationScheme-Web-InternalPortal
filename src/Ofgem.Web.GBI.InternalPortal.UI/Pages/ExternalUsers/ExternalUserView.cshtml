@@ -1,0 +1,24 @@
+﻿@page
+@using Ofgem.Web.GBI.InternalPortal.UI.Services;
+@model ExternalUserViewModel
+@{
+}
+<a href="javascript:history.back()" class="govuk-back-link" data-test-id="external-user-view-back-btn">Back</a>
+@await Component.InvokeAsync(ConstantsService.ViewUserComponent,new { userViewModel = Model.UserViewModel })
+<div class="govuk-button-group">
+    <form asp-page-handler="Edit" asp-route-id="@Model.UserViewModel?.UserDetail.ExternalUserId" method="post">
+        <button class="govuk-button" data-module="govuk-button" data-test-id="external-user-view-edit-btn">
+            Edit account
+        </button>
+    </form>
+
+    @if (Model.UserViewModel?.UserDetail?.Status == "Active")
+    {
+        <form asp-page-handler="Delete" asp-route-id="@Model.UserViewModel?.UserDetail.ExternalUserId" method="post">
+            <button class="govuk-button govuk-button--warning" data-module="govuk-button" data-test-id="external-user-view-delete-btn">
+                Delete user
+            </button>
+        </form>
+    }
+
+</div>

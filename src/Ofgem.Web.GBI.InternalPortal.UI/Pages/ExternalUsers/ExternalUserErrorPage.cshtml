@@ -1,0 +1,17 @@
+﻿@page
+@using Ofgem.Web.GBI.InternalPortal.UI.Services;
+@model ExternalUserErrorPageModel
+@{
+}
+<a href="javascript:history.back()" class="govuk-back-link" data-test-id="external-user-error-back-btn">Back</a>
+<div class="govuk-error-summary" data-module="govuk-error-summary" data-test-id="external-user-error-summary">
+    <div role="alert">
+        <h2 class="govuk-error-summary__title">
+            Something went wrong ....
+        </h2>
+        <p data-test-id="external-user-error-summary-message">@Model.ErrorMessage</p>
+    </div>
+</div>
+<div class="govuk-group">
+    <p><a class="govuk-link" href="@ConstantsService.ExternalUsersPage">Back to external user's list</a></p>
+</div>

@@ -1,0 +1,38 @@
+﻿@page
+@using Ofgem.Web.GBI.InternalPortal.Domain.Enums;
+@model ExternalUserSavedModel
+
+<style>
+    .user-email-address {
+        word-break: break-all;
+    }
+</style>
+
+<div class="govuk-panel govuk-panel--confirmation">
+    <h1 class="govuk-panel__title" data-test-id="external-user-saved-title">
+    @if (Model.OperationType == OperationType.Create)
+    {
+        <text>External user created</text>
+    }
+    else
+    {
+        <text>External user details updated</text>
+    }
+    </h1>
+</div>
+<div class="govuk-group">
+
+    @if (Model.OperationType == OperationType.Create)
+    {
+        <h2 class="govuk-heading-m">What happens next</h2>
+        <p>We have sent a confirmation email to <strong data-test-id="external-user-saved-user-email" class="user-email-address">@Model.UserDetailModel.EmailAddress</strong>.</p>
+        <p>@Model.UserDetailModel.FirstName @Model.UserDetailModel.LastName will be required to create a OneLogin account before they can progress.</p>
+    } 
+    else
+    {
+        <p>We have sent an update confirmation email to <strong data-test-id="external-user-saved-user-email" class="user-email-address">@Model.UserDetailModel.EmailAddress</strong>.</p>
+    }
+
+    <p><a class="govuk-link" href="/ExternalUsers">Back to external user's list</a></p>
+</div>
+

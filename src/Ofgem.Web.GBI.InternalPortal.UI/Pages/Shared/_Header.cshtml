@@ -1,0 +1,36 @@
+@* Generator: MvcView<object> *@
+@model Ofgem.GBI.InternalPortal.Service.Models.IHeaderViewModel
+@using Ofgem.GBI.InternalPortal.Service.Models.Links
+
+<header role="banner" id="global-header" class="with-proposition" aria-label="Great British Insulation Scheme Banner">
+    <div class="govuk-header__container govuk-width-container">
+        <div class="govuk-header__logo">
+            @Html.Raw(Model.RenderLink<GovUk>())
+        </div>
+        <div class="govuk-header__content">
+            @Html.Raw(Model.RenderLink<GbisHome>())
+        </div>
+    </div>
+</header>
+
+<div class="govuk-width-container" role="complementary">
+    <div class="govuk-phase-banner">
+        <p class="govuk-phase-banner__content" aria-label="Feedback banner">
+            <strong class="govuk-tag govuk-phase-banner__content__tag">
+                @Model.PhaseBannerTag
+            </strong>
+            <span class="govuk-phase-banner__text">
+                This is a new service &ndash; your @Html.Raw(Model.RenderLink<Feedback>()) will help us to improve it.
+            </span>
+        </p>
+    </div>
+
+    <nav id="app-navigation" class="app-navigation js-app-navigation govuk-clearfix" role="navigation">
+        <ul class="app-navigation__list app-width-container" aria-label="Navigation list">
+            @Html.Raw(Model.RenderLink<Home>())
+            @Html.Raw(Model.RenderLink<ExternalUsers>())
+        </ul>
+    </nav>
+
+
+</div>

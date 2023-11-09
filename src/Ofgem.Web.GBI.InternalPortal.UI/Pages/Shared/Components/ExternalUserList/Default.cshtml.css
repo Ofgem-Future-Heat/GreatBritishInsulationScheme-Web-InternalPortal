@@ -1,0 +1,44 @@
+﻿
+table.ofgem-table--fixed {
+    table-layout: fixed;
+    width: 100%;
+}
+
+    table.ofgem-table--fixed th {
+        overflow: hidden;
+        padding-left: 10px;
+    }
+
+        table.ofgem-table--fixed th:nth-of-type(1) {
+            padding-left: 0px;
+            width: 11%;
+        }
+
+        table.ofgem-table--fixed th:nth-of-type(2) {
+            width: 17%;
+        }
+
+        table.ofgem-table--fixed th:nth-of-type(3) {
+            width: 17%;
+        }
+
+        table.ofgem-table--fixed th:nth-of-type(4) {
+            width: 35%;
+        }
+
+        table.ofgem-table--fixed th:nth-of-type(5) {
+            width: 10%;
+        }
+
+        table.ofgem-table--fixed th:nth-of-type(6) {
+            width: 10%;
+        }
+
+    table.ofgem-table--fixed td {
+        overflow: hidden;
+        padding-left: 10px;
+    }
+
+        table.ofgem-table--fixed td:nth-of-type(1) {
+            padding-left: 0px;
+        }

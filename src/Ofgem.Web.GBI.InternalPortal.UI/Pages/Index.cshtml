@@ -1,0 +1,5 @@
+@page
+
+<h1 class="govuk-heading-xl">GBIS Register for internal users</h1>
+
+<p>Welcome, @User?.Claims?.FirstOrDefault(c=>c.Type == "name")?.Value.</p>

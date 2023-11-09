@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ofgem.Web.GBI.InternalPortal.Application\Ofgem.Web.GBI.InternalPortal.Application.csproj" />
+    <ProjectReference Include="..\Ofgem.Web.GBI.InternalPortal.Domain\Ofgem.Web.GBI.InternalPortal.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

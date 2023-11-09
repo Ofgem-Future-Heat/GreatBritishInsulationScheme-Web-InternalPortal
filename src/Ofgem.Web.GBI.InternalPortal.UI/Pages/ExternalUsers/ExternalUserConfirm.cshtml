@@ -1,0 +1,48 @@
+﻿@page
+@using Ofgem.Web.GBI.InternalPortal.UI.Models;
+@using Ofgem.Web.GBI.InternalPortal.UI.Services;
+@using Domain.Enums;
+@model ExternalUserConfirmModel
+
+<a href="javascript:history.back()" class="govuk-back-link">Back</a>
+
+<form method="post">
+    @await Component.InvokeAsync(ConstantsService.ConfirmUserComponent, new { userViewModel =  Model.UserViewModel })
+
+    @if (Model.UserViewModel.OperationType == OperationType.Delete)
+    {
+        <p class="govuk-body" data-test-id="external-user-confirm-delete-msg"> This user will be set as inactive </p>
+    }
+
+    <div class="govuk-button-group">
+        @if (Model.UserViewModel.OperationType == OperationType.Create)
+        {
+            <a class="govuk-link" href="ExternalUserAdd" data-test-id="external-user-confirm-update-btn">Edit details</a>
+        }
+        else if (Model.UserViewModel.OperationType == OperationType.Update)
+        {
+            <a class="govuk-link" href="ExternalUserEdit" data-test-id="external-user-confirm-update-btn">Edit details</a>
+        }
+    </div>
+    <div class="govuk-button-group">
+        @if (Model.UserViewModel.OperationType == OperationType.Create)
+        {
+            <button class="govuk-button" data-module="govuk-button" type="submit" data-test-id="external-user-confirm-submit-btn">
+                Submit
+            </button>
+        }
+        else if (Model.UserViewModel.OperationType == OperationType.Update)
+        {
+            <button class="govuk-button" data-module="govuk-button" type="submit" data-test-id="external-user-confirm-submit-btn">
+                Submit
+            </button>
+        }
+        else if (Model.UserViewModel.OperationType == OperationType.Delete)
+        {
+            <button class="govuk-button govuk-button-warning" data-module="govuk-button" type="submit" data-test-id="external-user-confirm-delete-btn">
+                Confirm delete
+            </button>
+            <a class="govuk-link" href="/ExternalUsers">Cancel</a>
+        }
+    </div>
+</form>

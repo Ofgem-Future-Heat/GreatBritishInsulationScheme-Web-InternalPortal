@@ -1,0 +1,14 @@
+﻿@page
+@model ExternalUserDeletedModel
+@{
+}
+<div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+            External user deleted
+        </h1>
+</div>
+<div class="govuk-group">
+    <p>We have sent a deleted confirmation email to <strong>@(Model.UserDetailModel.EmailAddress)</strong>.</p>
+
+    <p><a class="govuk-link" href="/ExternalUsers">Back to external user's list</a></p>
+</div>

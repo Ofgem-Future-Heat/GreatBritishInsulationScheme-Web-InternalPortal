@@ -1,0 +1,142 @@
+[
+	{
+		"supplierId": 1,
+		"supplierName": "EON"
+	},
+	{
+		"supplierId": 2,
+		"supplierName": "EDF"
+	},
+	{
+		"supplierId": 3,
+		"supplierName": "SPW"
+	},
+	{
+		"supplierId": 4,
+		"supplierName": "SSE"
+	},
+	{
+		"supplierId": 5,
+		"supplierName": "BGT"
+	},
+	{
+		"supplierId": 6,
+		"supplierName": "NPW"
+	},
+	{
+		"supplierId": 7,
+		"supplierName": "FUL"
+	},
+	{
+		"supplierId": 8,
+		"supplierName": "UTW"
+	},
+	{
+		"supplierId": 9,
+		"supplierName": "COP"
+	},
+	{
+		"supplierId": 10,
+		"supplierName": "OVO"
+	},
+	{
+		"supplierId": 11,
+		"supplierName": "UTA"
+	},
+	{
+		"supplierId": 12,
+		"supplierName": "XEN"
+	},
+	{
+		"supplierId": 13,
+		"supplierName": "SPK"
+	},
+	{
+		"supplierId": 14,
+		"supplierName": "EEN"
+	},
+	{
+		"supplierId": 15,
+		"supplierName": "FLO"
+	},
+	{
+		"supplierId": 16,
+		"supplierName": "HUD"
+	},
+	{
+		"supplierId": 17,
+		"supplierName": "BLB"
+	},
+	{
+		"supplierId": 18,
+		"supplierName": "OCT"
+	},
+	{
+		"supplierId": 19,
+		"supplierName": "GNE"
+	},
+	{
+		"supplierId": 20,
+		"supplierName": "EGE"
+	},
+	{
+		"supplierId": 21,
+		"supplierName": "AVR"
+	},
+	{
+		"supplierId": 22,
+		"supplierName": "SHL"
+	},
+	{
+		"supplierId": 23,
+		"supplierName": "SOE"
+	},
+	{
+		"supplierId": 24,
+		"supplierName": "RHE"
+	},
+	{
+		"supplierId": 25,
+		"supplierName": "TNK"
+	},
+	{
+		"supplierId": 26,
+		"supplierName": "PLA"
+	},
+	{
+		"supplierId": 27,
+		"supplierName": "ISP"
+	},
+	{
+		"supplierId": 28,
+		"supplierName": "UPL"
+	},
+	{
+		"supplierId": 29,
+		"supplierName": "ECY"
+	},
+	{
+		"supplierId": 30,
+		"supplierName": "BRI"
+	},
+	{
+		"supplierId": 31,
+		"supplierName": "ESB"
+	},
+	{
+		"supplierId": 32,
+		"supplierName": "IGL"
+	},
+	{
+		"supplierId": 33,
+		"supplierName": "TOE"
+	},
+	{
+		"supplierId": 34,
+		"supplierName": "FOX"
+	},
+	{
+		"supplierId": 35,
+		"supplierName": "PES"
+	}
+]

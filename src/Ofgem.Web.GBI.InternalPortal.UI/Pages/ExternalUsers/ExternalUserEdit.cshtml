@@ -1,0 +1,13 @@
+﻿@page
+@using Ofgem.Web.GBI.InternalPortal.UI.Services;
+@model ExternalUserEditModel
+
+<form method="post" action="">
+    @await Component.InvokeAsync(ConstantsService.EditUserComponent, new { userViewModel = Model.ExternalUserViewModel })
+    <div class="govuk-button-group">
+        <button class="govuk-button" data-module="govuk-button" type="submit" data-test-id="external-user-edit-update-btn">
+            Update
+        </button>
+        <a class="govuk-link" href="ExternalUserView?id=@Model.ExternalUserViewModel?.UserDetail?.ExternalUserId" data-test-id="external-user-edit-cancel-btn">Cancel</a>
+    </div>
+</form>

@@ -1,0 +1,15 @@
+﻿@page
+@using Ofgem.Web.GBI.InternalPortal.UI.Services;
+@model ExternalUserAddModel
+@{
+}
+<form method="post" action="">
+    @await Component.InvokeAsync(ConstantsService.EditUserComponent,new { userViewModel = Model.ExternalUserViewModel })
+    <div class="govuk-button-group">
+            <button class="govuk-button" data-module="govuk-button" type="submit" data-test-id="external-user-add-create-btn">
+                Create
+            </button>
+            <a class="govuk-link" href="@ConstantsService.ExternalUsersPage">Cancel</a>
+
+    </div>
+</form>

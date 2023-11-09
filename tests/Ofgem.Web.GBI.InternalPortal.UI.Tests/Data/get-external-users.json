@@ -1,0 +1,28 @@
+[
+	{
+		"externalUserId": "c32156a8-b2df-46dc-8fdc-08db9fe0b9ab",
+		"providerUserId": null,
+		"firstName": "Name",
+		"lastName": "One",
+		"emailAddress": "one@example.com",
+		"userType": "AuthorisedSignatoryRole",
+		"isActive": true,
+		"supplier": {
+			"supplierId": 1,
+			"supplierName": "EON"
+		}
+	},
+	{
+		"externalUserId": "17c6c9c1-2f2a-4ac8-8fdd-08db9fe0b9ab",
+		"providerUserId": null,
+		"firstName": "Name",
+		"lastName": "Two",
+		"emailAddress": "two@example.com",
+		"userType": "AuthorisedSignatoryRole",
+		"isActive": true,
+		"supplier": {
+			"supplierId": 1,
+			"supplierName": "EON"
+		}
+	}
+]

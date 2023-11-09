@@ -1,0 +1,149 @@
+﻿@using Ofgem.Web.GBI.InternalPortal.Infrastructure.Services;
+@using Ofgem.Web.GBI.InternalPortal.UI.Extensions;
+@using Ofgem.Web.GBI.InternalPortal.UI.Models;
+@using Ofgem.Web.GBI.InternalPortal.UI.Pages.Shared.Components.EditUser;
+@using Ofgem.Web.GBI.InternalPortal.Domain.Models;
+@using Ofgem.Web.GBI.InternalPortal.Domain.Enums;
+@model UserViewModel;
+
+<a href="javascript:history.back()" class="govuk-back-link" data-test-id="edit-user-back-btn">Back</a>
+<fieldset class="govuk-fieldset" data-test-id="user-viewmodel-fieldSet">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h1 class="govuk-fieldset__heading">
+            @Model.Header
+        </h1>
+    </legend>
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div data-test-id="upload-measures-div-error-list" class="govuk-error-summary" data-module="govuk-error-summary">
+            <div role="alert">
+                <h2 class="govuk-error-summary__title"> There is a problem </h2>
+                <div class="govuk-error-summary__body">
+                    <ul class="govuk-list govuk-error-summary__list">
+
+                        @{
+                            if (!ViewData.ModelState.IsFieldValid("UserDetail.Supplier.SupplierId"))
+                            {
+                                <li data-test-id="supplier-error-message"> <a href="#supplier-error"><span asp-validation-for="UserDetail!.Supplier.SupplierId"></span></a> </li>
+                            }
+                            if (!ViewData.ModelState.IsFieldValid("UserDetail.FirstName"))
+                            {
+                                <li data-test-id="first-name-error-message"> <a href="#first-name-error"><span asp-validation-for="UserDetail!.FirstName"></span></a> </li>
+                            }
+                            if (!ViewData.ModelState.IsFieldValid("UserDetail.LastName"))
+                            {
+                                <li data-test-id="last-name-error-message"> <a href="#last-name-error"><span asp-validation-for="UserDetail!.LastName"></span></a> </li>
+                            }
+                            if (!ViewData.ModelState.IsFieldValid("UserDetail.EmailAddress"))
+                            {
+                                <li data-test-id="email-address-error-message"> <a href="#email-address-error"><span asp-validation-for="UserDetail!.EmailAddress"></span></a> </li>
+                            }
+                            if (!ViewData.ModelState.IsFieldValid("UserDetail.UserType")) 
+                            { 
+                                <li data-test-id="user-type-error-message"> <a href="#user-type-error"><span asp-validation-for="UserDetail.UserType"></span></a> </li>
+                            }
+                        }
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    }
+    <div class="govuk-form-group @(ViewData.ModelState.IsFieldValid("UserDetail.Supplier.SupplierId") ? "" : "govuk-form-group--error")">
+        <label class="govuk-label" asp-for="UserDetail.Supplier.SupplierId">
+            Supplier name
+        </label>
+        @if (!ViewData.ModelState.IsFieldValid("UserDetail.Supplier.SupplierId"))
+        {
+            <p id="supplier-error" class="govuk-error-message">
+                <span asp-validation-for="UserDetail.Supplier.SupplierId"></span>
+            </p>
+        }
+        <select class="govuk-select" data-test-id="supplier-id-input" asp-for="UserDetail.Supplier.SupplierId">
+            
+            <option value="" selected>Select an account</option>
+            
+            @if (Model.Suppliers != null)
+            {
+                foreach (var supplier in Model.Suppliers)
+                {
+                    if (supplier.Key == Model?.UserDetail?.SupplierId)
+                    {
+                        <option value="@supplier.Key">@supplier.Value</option>
+                    }
+                    else
+                    {
+                        <option value="@supplier.Key">@supplier.Value</option>
+                    }
+                }
+            }
+        </select>
+    </div>
+    <div class="govuk-form-group @(ViewData.ModelState.IsFieldValid("UserDetail.FirstName") ? "" : "govuk-form-group--error")">
+        <label class="govuk-label" asp-for="UserDetail.FirstName">
+            First name
+        </label>
+        @if (!ViewData.ModelState.IsFieldValid("UserDetail.FirstName"))
+        {
+            <p id="first-name-error" class="govuk-error-message">
+                <span asp-validation-for="UserDetail.FirstName"></span>
+            </p>
+        }
+        <input class="govuk-input" data-test-id="first-name-input" type="text" autocomplete="off" asp-for="UserDetail.FirstName">
+    </div>
+    <div class="govuk-form-group @(ViewData.ModelState.IsFieldValid("UserDetail.LastName") ? "" : "govuk-form-group--error")">
+        <label class="govuk-label" asp-for="UserDetail.LastName">
+            Last name
+        </label>
+        @if (!ViewData.ModelState.IsFieldValid("UserDetail.LastName"))
+        {
+            <p id="last-name-error" class="govuk-error-message">
+                <span asp-validation-for="UserDetail.LastName"></span>
+            </p>
+        }
+        <input class="govuk-input" data-test-id="last-name-input" type="text" autocomplete="off" asp-for="UserDetail.LastName">
+    </div>
+    <div class="govuk-form-group @(ViewData.ModelState.IsFieldValid("UserDetail.EmailAddress") ? "" : "govuk-form-group--error")">
+        <label class="govuk-label" for="email-address">
+            Email address
+        </label>
+        @if (!ViewData.ModelState.IsFieldValid("UserDetail.EmailAddress"))
+        {
+            <p id="email-address-error" class="govuk-error-message">
+                <span asp-validation-for="UserDetail.EmailAddress"></span>
+            </p>
+        }
+        <input class="govuk-input" data-test-id="email-address-input" type="text" autocomplete="off" asp-for="UserDetail.EmailAddress">
+    </div>
+    <div class="govuk-form-group @(ViewData.ModelState.IsFieldValid("UserDetail.UserType") ? "" : "govuk-form-group--error")">
+        <label class="govuk-label" asp-for="UserDetail.UserType">
+            User type
+        </label>
+        @if (!ViewData.ModelState.IsFieldValid("UserDetail.UserType"))
+        {
+            <p id="user-type-error" class="govuk-error-message">
+                <span asp-validation-for="UserDetail.UserType"></span>
+            </p>
+        }
+        <select class="govuk-select" data-test-id="user-type-input" asp-for="UserDetail.UserType">
+            
+            <option value="">Select a user type</option>
+
+            @foreach (int i in Enum.GetValues(typeof(ExternalUserType)))
+            {
+                if (i == (int?)Model?.UserDetail?.UserType)
+                {
+                    <option value="@i">@EnumsExtensions.GetEnumDescription((ExternalUserType)i)</option>
+                }
+                else
+                {
+                    <option value="@i">@EnumsExtensions.GetEnumDescription((ExternalUserType)i)</option>
+                }
+            }
+        </select>
+    </div>
+
+    <input type="hidden" data-test-id="status-hidden" value="@(Model!.UserDetail?.ExternalUserId ?? Guid.Empty)" asp-for="UserDetail.ExternalUserId" />
+    <input type="hidden" data-test-id="status-hidden" asp-for="UserDetail.IsActive" />
+</fieldset>

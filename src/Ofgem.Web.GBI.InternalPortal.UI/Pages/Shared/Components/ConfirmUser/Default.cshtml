@@ -1,0 +1,63 @@
+﻿@using Ofgem.Web.GBI.InternalPortal.Infrastructure.Services;
+@using Ofgem.Web.GBI.InternalPortal.Domain.Enums;
+@using Ofgem.Web.GBI.InternalPortal.Domain.Models;
+@using Ofgem.Web.GBI.InternalPortal.UI.Extensions;
+@using Ofgem.Web.GBI.InternalPortal.UI.Models;
+@model UserViewModel;
+
+<style>
+    td {
+        word-break: break-all;
+    }
+</style>
+
+<h1 class="govuk-heading-l">@Model.Header</h1>
+<table class="govuk-table">
+    <caption class="govuk-table__caption govuk-table__caption--m">@Model.PersonalDetailsTableCaption</caption>
+    <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" width="30%">Full name</th>
+            <td class="govuk-table__cell" data-test-id="user-name-table-cell" width="70%">
+                @Model.UserDetail!.FirstName @Model.UserDetail.LastName
+            </td>
+        </tr>
+        <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Email address</th>
+            <td class="govuk-table__cell" data-test-id="email-address-table-cell">
+                @Model.UserDetail.EmailAddress
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="govuk-table">
+    <caption class="govuk-table__caption govuk-table__caption--m">Other details</caption>
+    <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" width="30%">Supplier name</th>
+            <td class="govuk-table__cell" data-test-id="supplier-name-table-cell" width="70%">
+                @Model.UserDetail.Supplier.SupplierName
+            </td>
+        </tr>
+        <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">User type</th>
+            <td class="govuk-table__cell" data-test-id="user-type-table-cell">
+                @EnumsExtensions.GetEnumDescription((ExternalUserType)Model.UserDetail.UserType)
+            </td>
+        </tr>
+        <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">User status</th>
+            <td class="govuk-table__cell" data-test-id="user-status-table-cell">
+                @Model.UserDetail.Status
+            </td>
+        </tr>
+    </tbody>
+</table>
+<input type="hidden" data-test-id="first-name-hidden" value="@Model.UserDetail.FirstName" asp-for="UserDetail!.FirstName" />
+<input type="hidden" data-test-id="last-name-hidden" value="@Model.UserDetail.LastName" asp-for="UserDetail!.LastName" />
+<input type="hidden" data-test-id="id-hidden" value="@Model.UserDetail.ExternalUserId" asp-for="UserDetail!.ExternalUserId" />
+<input type="hidden" data-test-id="email-address-hidden" value="@Model.UserDetail.EmailAddress" asp-for="UserDetail!.EmailAddress" />
+<input type="hidden" data-test-id="operation-type-hidden" value="@Model.OperationType" asp-for="OperationType" />
+<input type="hidden" data-test-id="supplier-id-hidden" value="@Model.UserDetail.Supplier.SupplierId" asp-for="UserDetail!.Supplier.SupplierId" />
+<input type="hidden" data-test-id="supplier-name-hidden" value="@Model.UserDetail.Supplier.SupplierName" asp-for="UserDetail!.Supplier.SupplierName" />
+<input type="hidden" data-test-id="user-type-hidden" value="@Model.UserDetail.UserType" asp-for="UserDetail!.UserType" />
+<input type="hidden" data-test-id="status-hidden" value="@Model.UserDetail.IsActive" asp-for="UserDetail!.IsActive" />
